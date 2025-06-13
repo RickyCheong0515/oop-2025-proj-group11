@@ -15,4 +15,5 @@ for year in range(112,114,1):
     df = pd.read_csv(path)
     df = df.drop(0)  #去掉第一行的英文解釋避免影響數據
     Non_Luxury_Sales = pd.concat([Non_Luxury_Sales,df])
+    df = df.drop(columns=['主建物面積','附屬建物面積','陽台面積','電梯','移轉編號'])
     Sales_all = pd.concat([Sales_all,df])
