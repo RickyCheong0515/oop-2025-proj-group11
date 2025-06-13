@@ -30,3 +30,8 @@ for year in range(101,114,1):
     df = pd.read_csv(path)
     df = df.drop(0)    #remove the first row(translation of each column)
     Rent_all = pd.concat([Rent_all,df])
+
+date = Sales_all['交易年月日']
+for i in range(len(date)):
+  date.iloc[i] = datetime.date(int(date.iloc[i][:3])+1911, int(date.iloc[i][3:5]), int(date.iloc[i][5:]))
+Sales_all['交易年月日'] = date
