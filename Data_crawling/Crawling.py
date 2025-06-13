@@ -13,5 +13,6 @@ for year in range(112,114,1):
             zf.extract(name, r'zipfolder')
     path = "/content/zipfolder/a_lvr_land_a.csv"
     df = pd.read_csv(path)
+    df = df.drop(0)  #去掉第一行的英文解釋避免影響數據
     Non_Luxury_Sales = pd.concat([Non_Luxury_Sales,df])
     Sales_all = pd.concat([Sales_all,df])
