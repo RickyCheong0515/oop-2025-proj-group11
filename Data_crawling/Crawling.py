@@ -46,4 +46,4 @@ for i in range(len(date)):
   date.iloc[i] = datetime.date(int(date.iloc[i][:3])+1911, int(date.iloc[i][3:5]), int(date.iloc[i][5:]))
 Non_Luxury_Sales['交易年月日'] = date
 
-Sales_all.to_csv('Sales_all.csv', index=False)
+Sales_all.to_csv('Sales_all.csv', index=False, encoding='utf_8_sig')
