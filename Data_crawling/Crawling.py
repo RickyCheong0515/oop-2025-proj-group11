@@ -47,3 +47,6 @@ for i in range(len(date)):
 Non_Luxury_Sales['交易年月日'] = date
 
 Sales_all.to_csv('Sales_all.csv', index=False, encoding='utf_8_sig')
+Luxury_Sales.to_csv('Luxury_Sales.csv', index=False, encoding='utf_8_sig')
+Non_Luxury_Sales.to_csv('Non_Luxury_Sales.csv', index=False, encoding='utf_8_sig')
+Rent_all.to_csv('Rent_all.csv', index=False, encoding='utf_8_sig')
