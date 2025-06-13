@@ -11,3 +11,5 @@ for year in range(112,114,1):
         nameList = zf.namelist()
         for name in nameList:
             zf.extract(name, r'zipfolder')
+    path = "/content/zipfolder/a_lvr_land_a.csv"
+    df = pd.read_csv(path)
