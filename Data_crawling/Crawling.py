@@ -7,6 +7,9 @@ for year in range(101,114,1):
   for season in range(1,5,1):
     url = f"https://plvr.land.moi.gov.tw/DownloadSeason?season={year}S{season}&type=zip&fileName=lvr_landcsv.zip"
     response = requests.get(url)
+    response.raise_for_status()
+    with open('lvr_landcsv.zip', 'wb') as f:
+      f.write(response.content)
     with zipfile.ZipFile('lvr_landcsv.zip', mode='r') as zf:
         nameList = zf.namelist()
         for name in nameList:
@@ -33,7 +36,7 @@ for year in range(101,114,1):
 
 date = Sales_all['交易年月日']
 for i in range(len(date)):
-  date.iloc[i] = datetime.date(int(date.iloc[i][:3])+1911, int(date.iloc[i][3:5]), int(date.iloc[i][5:]))
+  date.iloc[i] = str(int(date.iloc[i][:3])+1911) + '-' + date.iloc[i][3:5] + '-' + date.iloc[i][5:] if int(date.iloc[i][:3]) < 114 and int(date.iloc[i][:3]) > 100 else None
 Sales_all['交易年月日'] = date
 
 date = Luxury_Sales['交易年月日']
