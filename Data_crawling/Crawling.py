@@ -51,6 +51,10 @@ Non_Luxury_Sales['交易年月日'] = date
 
 Sales_all['交易年月日'] = pd.to_datetime(Sales_all['交易年月日'])
 Sales_all = Sales_all[Sales_all['交易年月日']>pd.to_datetime('2023-01-01')]
+Luxury_Sales['交易年月日'] = pd.to_datetime(Luxury_Sales['交易年月日'])
+Luxury_Sales = Luxury_Sales[Luxury_Sales['交易年月日']>pd.to_datetime('2023-01-01')]
+Non_Luxury_Sales['交易年月日'] = pd.to_datetime(Non_Luxury_Sales['交易年月日'])
+Non_Luxury_Sales = Non_Luxury_Sales[Non_Luxury_Sales['交易年月日']>pd.to_datetime('2023-01-01')]
 
 Sales_all.to_csv('Sales_all.csv', index=False, encoding='utf_8_sig')
 Luxury_Sales.to_csv('Luxury_Sales.csv', index=False, encoding='utf_8_sig')
