@@ -49,6 +49,9 @@ for i in range(len(date)):
   date.iloc[i] = str(int(date.iloc[i][:3])+1911) + '-' + date.iloc[i][3:5] + '-' + date.iloc[i][5:] if int(date.iloc[i][:3]) < 114 and int(date.iloc[i][:3]) > 100 else None
 Non_Luxury_Sales['交易年月日'] = date
 
+Sales_all['交易年月日'] = pd.to_datetime(Sales_all['交易年月日'])
+Sales_all = Sales_all[Sales_all['交易年月日']>pd.to_datetime('2023-01-01')]
+
 Sales_all.to_csv('Sales_all.csv', index=False, encoding='utf_8_sig')
 Luxury_Sales.to_csv('Luxury_Sales.csv', index=False, encoding='utf_8_sig')
 Non_Luxury_Sales.to_csv('Non_Luxury_Sales.csv', index=False, encoding='utf_8_sig')
