@@ -41,12 +41,12 @@ Sales_all['交易年月日'] = date
 
 date = Luxury_Sales['交易年月日']
 for i in range(len(date)):
-  date.iloc[i] = datetime.date(int(date.iloc[i][:3])+1911, int(date.iloc[i][3:5]), int(date.iloc[i][5:]))
+  date.iloc[i] = str(int(date.iloc[i][:3])+1911) + '-' + date.iloc[i][3:5] + '-' + date.iloc[i][5:] if int(date.iloc[i][:3]) < 114 and int(date.iloc[i][:3]) > 100 else None
 Luxury_Sales['交易年月日'] = date
 
 date = Non_Luxury_Sales['交易年月日']
 for i in range(len(date)):
-  date.iloc[i] = datetime.date(int(date.iloc[i][:3])+1911, int(date.iloc[i][3:5]), int(date.iloc[i][5:]))
+  date.iloc[i] = str(int(date.iloc[i][:3])+1911) + '-' + date.iloc[i][3:5] + '-' + date.iloc[i][5:] if int(date.iloc[i][:3]) < 114 and int(date.iloc[i][:3]) > 100 else None
 Non_Luxury_Sales['交易年月日'] = date
 
 Sales_all.to_csv('Sales_all.csv', index=False, encoding='utf_8_sig')
