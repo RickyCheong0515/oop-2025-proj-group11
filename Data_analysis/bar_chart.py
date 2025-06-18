@@ -13,3 +13,7 @@ df['單價元平方公尺'] = pd.to_numeric(df['單價元平方公尺'], errors=
 
 # 按鄉鎮市區分組，計算平均單價
 avg_price_by_area = df.groupby('鄉鎮市區')['單價元平方公尺'].mean().sort_values(ascending=False)
+
+# 畫出長條圖
+plt.figure(figsize=(15, 8))
+avg_price_by_area.plot(kind='bar')
